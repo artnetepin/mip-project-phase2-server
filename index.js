@@ -17,7 +17,7 @@ var users = [{
   username: "username",
   password: "password",
   fullName: "Lorem Ipsum",
-  profileImageSmall: "http://core0.staticworld.net/images/article/2015/11/111915blog-donald-trump-100629006-primary.idge.jpg",
+  profileImageSmall: "http://cdn5.thr.com/sites/default/files/2011/11/andy_samberg_snl_shy_ronnie.jpg",
   postCount: 13,
   followers: 52,
   following: 2,
