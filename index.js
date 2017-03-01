@@ -185,6 +185,7 @@ app.get('/posts/:id', function(req, res) {
     }
   });
   res.json(items);
+  console.log(items);
 });
 
 // start listening for incoming HTTP connections
