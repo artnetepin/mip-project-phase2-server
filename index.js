@@ -3,14 +3,11 @@ var cors = require('cors');
 var bodyParser = require('body-parser');
 var app = express();
 
-// You can store key-value pairs in express, here we store the port setting
 app.set('port', (process.env.PORT || 3000));
 
-// bodyParser needs to be configured for parsing JSON from HTTP body
 app.use(bodyParser.json());
 app.use(cors());
 
-// Simple hello world route
 app.get('/', function(req, res) {
   res.send("Hello world");
 });
@@ -19,8 +16,8 @@ var users = [{
   id: 1,
   username: "username",
   password: "password",
-  fullName: "Donald Trump",
-  profileImageSmall: "http://occupydemocrats.com/wp-content/uploads/trumphayes.png",
+  fullName: "Lorem Ipsum",
+  profileImageSmall: "http://core0.staticworld.net/images/article/2015/11/111915blog-donald-trump-100629006-primary.idge.jpg",
   postCount: 13,
   followers: 52,
   following: 2,
@@ -28,7 +25,7 @@ var users = [{
       userId: 2,
       username: "POTUS",
       fullName: "President of United States",
-      profileImageSmall: "http://occupydemocrats.com/wp-content/uploads/trumphayes.png",
+      profileImageSmall: "http://i.telegraph.co.uk/multimedia/archive/03541/Barack-Obama-gets-_3541878k.jpg",
       type: "commented",
       comment: "You're never going to make it don #losing",
       userRefs: [],
@@ -45,6 +42,16 @@ var users = [{
       tags: []
     }
   ]
+}, {
+  id: 2,
+  username: "cat",
+  password: "catword",
+  fullName: "Cat Ipsum",
+  profileImageSmall: "http://cdn.abclocal.go.com/content/creativeContent/images/cms/060314-cc-hamilton-hipster-cat-img.jpg",
+  postCount: 13,
+  followers: 3000,
+  following: 41,
+  activity: []
 }];
 
 var posts = [{
@@ -52,10 +59,10 @@ var posts = [{
   user: {
     id: 1,
     username: "dtrump",
-    profileImageSmall: "http://occupydemocrats.com/wp-content/uploads/trumphayes.png"
+    profileImageSmall: "http://core0.staticworld.net/images/article/2015/11/111915blog-donald-trump-100629006-primary.idge.jpg"
   },
-  image: "http://en-volve.com/wp-content/uploads/2016/11/enVolve-TRUMP-wins-2016-Presidential-Election.jpg",
-  imageThumbnail: "http://en-volve.com/wp-content/uploads/2016/11/enVolve-TRUMP-wins-2016-Presidential-Election.jpg",
+  image: "http://media1.fdncms.com/sacurrent/imager/u/original/2513252/donald_trump4.jpg",
+  imageThumbnail: "http://media1.fdncms.com/sacurrent/imager/u/original/2513252/donald_trump4.jpg",
   likes: 892,
   caption: "Always winning #elections",
   tags: ['elections'],
@@ -81,10 +88,57 @@ var posts = [{
     },
   ]
 
+}, {
+  id: 1,
+  user: {
+    id: 1,
+    username: "dtrump",
+    profileImageSmall: "http://core0.staticworld.net/images/article/2015/11/111915blog-donald-trump-100629006-primary.idge.jpg"
+  },
+  image: "http://media1.fdncms.com/sacurrent/imager/u/original/2513252/donald_trump4.jpg",
+  imageThumbnail: "http://media1.fdncms.com/sacurrent/imager/u/original/2513252/donald_trump4.jpg",
+  likes: 892,
+  caption: "Always winning #elections",
+  tags: ['elections'],
+  comments: [{
+      id: 0,
+      user: {
+        id: 2,
+        username: "POTUS"
+      },
+      comment: "You're never going to make it don #losing",
+      userRefs: [],
+      tags: ["losing"]
+    },
+    {
+      id: 1,
+      user: {
+        id: 3,
+        username: "HillaryC"
+      },
+      comment: "Damn right @POTUS",
+      userRefs: ["POTUS"],
+      tags: []
+    },
+  ]
+
+}, {
+  id: 2,
+  user: {
+    id: 2,
+    username: "cat",
+    profileImageSmall: "http://cdn.abclocal.go.com/content/creativeContent/images/cms/060314-cc-hamilton-hipster-cat-img.jpg"
+  },
+  image: "https://pbs.twimg.com/profile_images/669537611132878848/fSUL6hVT_400x400.jpg",
+  imageThumbnail: "https://pbs.twimg.com/profile_images/669537611132878848/fSUL6hVT_400x400.jpg",
+  likes: 41015162342,
+  caption: "Coala, man!",
+  tags: ['#wut'],
+  comments: []
+
 }]
 
 app.post('/login', function(req, res) {
-  console.log("test");
   console.log(req.body);
   var u = users.find(function(element) {
     return (element.username === req.body.username) && (element.password === req.body.password);
@@ -97,27 +151,37 @@ app.post('/login', function(req, res) {
   }
 });
 
-// app.post('/addUser', function(req, res) {
-//   var length = users.push({
-//     id: "vbiwe",
-//     username: req.body.username,
-//     password: req.body.password,
-//     fullName: "lorem",
-//     profileImageSmall: "http://en-volve.com/wp-content/uploads/2016/11/enVolve-TRUMP-wins-2016-Presidential-Election.jpg"
-//   });
-//   if (users[length - 1].username == req.body.username) {
-//     return res.json(res.json(users[length - 1]));
-//   } else {
-//     return res.sendStatus(401);
-//   }
-// });
+app.post('/addUser', function(req, res) {
+  var length = users.push({
+    id: 4,
+    username: req.body.username,
+    password: req.body.password,
+    fullName: "Cat Ipsum",
+    profileImageSmall: "http://sunfieldfarm.org/wp-content/uploads/2014/02/profile-placeholder.png"
+  });
+  if (users[length - 1].username == req.body.username) {
+    return res.json(res.json(users[length - 1]));
+  } else {
+    return res.sendStatus(401);
+  }
+});
+
+app.get('/users', function(req, res) {
+  res.json(users);
+});
 
 app.get('/posts/relevant', function(req, res) {
   res.json(posts);
 });
 
 app.get('/posts/:id', function(req, res) {
-  res.json(posts[req.params.id]);
+  var items = [];
+  posts.forEach(function(item, i) {
+    if (item.user.id == req.params.id) {
+      items.push(item);
+    }
+  });
+  res.json(items);
 });
 
 // start listening for incoming HTTP connections
