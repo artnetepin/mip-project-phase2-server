@@ -91,24 +91,38 @@ var posts = [{
 }, {
   id: 1,
   user: {
-    id: 1,
-    username: "dtrump",
-    profileImageSmall: "http://core0.staticworld.net/images/article/2015/11/111915blog-donald-trump-100629006-primary.idge.jpg"
+    id: 2,
+    username: "cat",
+    profileImageSmall: "http://cdn.abclocal.go.com/content/creativeContent/images/cms/060314-cc-hamilton-hipster-cat-img.jpg"
   },
-  image: "http://media1.fdncms.com/sacurrent/imager/u/original/2513252/donald_trump4.jpg",
-  imageThumbnail: "http://media1.fdncms.com/sacurrent/imager/u/original/2513252/donald_trump4.jpg",
-  likes: 892,
-  caption: "Always winning #elections",
-  tags: ['elections'],
+  image: "https://pbs.twimg.com/profile_images/669537611132878848/fSUL6hVT_400x400.jpg",
+  imageThumbnail: "https://pbs.twimg.com/profile_images/669537611132878848/fSUL6hVT_400x400.jpg",
+  likes: 41015162342,
+  caption: "Coala, man!",
+  tags: ['#wut'],
+  comments: []
+
+}, {
+  id: 2,
+  user: {
+    id: 2,
+    username: "cat",
+    profileImageSmall: "http://cdn.abclocal.go.com/content/creativeContent/images/cms/060314-cc-hamilton-hipster-cat-img.jpg"
+  },
+  image: "http://cdn.abclocal.go.com/content/creativeContent/images/cms/060314-cc-hamilton-hipster-cat-img.jpg",
+  imageThumbnail: "http://cdn.abclocal.go.com/content/creativeContent/images/cms/060314-cc-hamilton-hipster-cat-img.jpg",
+  likes: 3,
+  caption: "SUP HOOMAN #awesome",
+  tags: ['awesome'],
   comments: [{
       id: 0,
       user: {
         id: 2,
         username: "POTUS"
       },
-      comment: "You're never going to make it don #losing",
+      comment: "You're so awesome",
       userRefs: [],
-      tags: ["losing"]
+      tags: [""]
     },
     {
       id: 1,
@@ -121,20 +135,6 @@ var posts = [{
       tags: []
     },
   ]
-
-}, {
-  id: 2,
-  user: {
-    id: 2,
-    username: "cat",
-    profileImageSmall: "http://cdn.abclocal.go.com/content/creativeContent/images/cms/060314-cc-hamilton-hipster-cat-img.jpg"
-  },
-  image: "https://pbs.twimg.com/profile_images/669537611132878848/fSUL6hVT_400x400.jpg",
-  imageThumbnail: "https://pbs.twimg.com/profile_images/669537611132878848/fSUL6hVT_400x400.jpg",
-  likes: 41015162342,
-  caption: "Coala, man!",
-  tags: ['#wut'],
-  comments: []
 
 }]
 
