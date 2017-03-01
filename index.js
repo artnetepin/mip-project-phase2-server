@@ -157,7 +157,10 @@ app.post('/addUser', function(req, res) {
     username: req.body.username,
     password: req.body.password,
     fullName: "Cat Ipsum",
-    profileImageSmall: "http://sunfieldfarm.org/wp-content/uploads/2014/02/profile-placeholder.png"
+    profileImageSmall: "http://sunfieldfarm.org/wp-content/uploads/2014/02/profile-placeholder.png",
+    postCount: 0,
+    followers: 0,
+    following: 0
   });
   if (users[length - 1].username == req.body.username) {
     return res.json(res.json(users[length - 1]));
